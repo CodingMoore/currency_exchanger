@@ -7,7 +7,7 @@ export class ExchangeApi {
       }
       return response.json();
     } catch(error) {
-      return error.message;
+      return error;
     }
   }
 }
