@@ -9,6 +9,7 @@ function outputFun(response) {
   if (response.conversion_rates) {
     $("#outputVal").html("The exchange rate between " + $('#baseCur').val() + " and " + $('#newCur').val() + " is " + response.conversion_rates.AUD + ". <br><br>" + $("#inputVal").val() + " " + $('#baseCur').val() + " = " + calc($("#inputVal").val(), response.conversion_rates.AUD) + " " + $('#newCur').val() + ".");
   } else {
+    console.log(response);
     $("#outputVal").text(`There was an error: ${response}`);
   }
 
