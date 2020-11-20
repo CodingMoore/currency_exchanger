@@ -1,5 +1,3 @@
-export class CalcVal {
-  function calculate(inputNum, factor) {
-    return inputNum * factor
-  }
+export function calc(inputNum, factor) {
+  return parseFloat(inputNum) * parseFloat(factor);
 }

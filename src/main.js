@@ -3,10 +3,11 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import { ExchangeApi } from './exchange-service';
+import { calc } from './business.logic.js';
 
 function outputFun(response) {
   if (response.conversion_rates) {
-    $("#outputVal").text("The exchange rate between " + $('#baseCur').val() + " and " + $('#newCur').val() + " is " response.conversion_rates.AUD + ". <br>" + inputNum + " is " + CalcVal.calculate(inputNum, response.conversion_rates.AUD) + " " + $('#newCur').val() + ".");
+    $("#outputVal").html("The exchange rate between " + $('#baseCur').val() + " and " + $('#newCur').val() + " is " + response.conversion_rates.AUD + ". <br><br>" + $("#inputVal").val() + " " + $('#baseCur').val() + " = " + calc($("#inputVal").val(), response.conversion_rates.AUD) + " " + $('#newCur').val() + ".");
   } else {
     $("#outputVal").text(`There was an error: ${response}`);
   }
@@ -19,6 +20,7 @@ $(document).ready(function() {
     event.preventDefault();
     let baseCur = $("#baseCur").val();
     // let newCur = $("#newCur").val();
+    // let inputVal = $("#inputVal").val();
     (async function() {
       const response = await ExchangeApi.apiCall(baseCur);
       outputFun(response);
