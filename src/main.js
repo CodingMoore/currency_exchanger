@@ -5,7 +5,12 @@ import './css/styles.css';
 import { ExchangeApi } from './exchange-service';
 
 function outputFun(response) {
-  //resolved output
+  const newCur = ${newCur};
+  if (response.conversion_rates) {
+    $("#outputVal").text(`The exchange rate between ${baseCur} and ${newCur} is ${response.conversion_rates.AUD}.`)
+  } else {
+    $("#outputVal").text(`There was an error: ${response}`);
+  }
 
   //error output
 }
