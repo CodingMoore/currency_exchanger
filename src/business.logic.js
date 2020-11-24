@@ -2,13 +2,13 @@ export function calc(inputNum, factor) {
   return parseFloat(inputNum) * parseFloat(factor);
 }
 
-export static class Database {
+export class Database {
   constructor() {
-    this.curKey = curKey;
-    this.conFactor = conFactor
+    this.curKey;
+    this.conFactor;
   }
 
-  databaseNew(response, newCur) {
+  static databaseNew(response, newCur) {
     const curKey = Object.entries(response.conversion_rates);
     for (let i = 0; i < curKey.length; i++) {
       if (newCur === curKey[i][0]) {
@@ -17,7 +17,7 @@ export static class Database {
     }
   }
 
-  databaseOld(newCur) {
+  static databaseOld(newCur) {
     for (let i = 0; i < this.curKey.length; i++) {
       if (newCur === this.curKey[i][0]) {
         this.conFactor = this.curKey[i][1];

@@ -6,23 +6,26 @@ import { ExchangeApi } from './exchange-service';
 import { calc, Database } from './business.logic.js';
 
 function outputText() {
+  let baseCur = $("#baseCur").val();
+  let newCur = $("#newCur").val();
+  let inputVal = $("#inputVal").val();
   $("#outputVal").html("The exchange rate between " + baseCur + " and " + newCur + " is " + Database.confactor + ". <br><br>" + inputVal + " " + baseCur + " = " + calc(inputVal, Database.confactor) + " " + newCur + ".");
 }
 
 function outputFun(response) {
-  let baseCur = $("#baseCur").val();
   let newCur = $("#newCur").val();
-  let inputVal = $("#inputVal").val();
   if (response === "useDatabaseOld") {
-    databaseOld(newCur);
+    Database.databaseOld(newCur);
+    outputText();
   } 
   else if (response.conversion_rate) {
-    databaseNew(response, newCur);
+    Database.databaseNew(response, newCur);
+    outputText();
   } else {
     if (response["error-type"] === "unsupported-code") {
       $("#outputVal").text("That input currency is not supported or does not exist");
     } else {
-    $("#outputVal").text(`There was an error: ${response["error-type"]}`);
+      $("#outputVal").text(`There was an error: ${response["error-type"]}`);
     }
   }
 }
@@ -53,7 +56,7 @@ $(document).ready(function() {
     event.preventDefault();
     baseCurArray.push($("#baseCur").val());
     if (baseCurArray[1] === baseCurArray[0]) {
-      let response = "useDatabaseOld"
+      let response = "useDatabaseOld";
       outputFun(response);
     } else {
       (async function() {
