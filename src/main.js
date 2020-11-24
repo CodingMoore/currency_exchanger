@@ -5,13 +5,19 @@ import './css/styles.css';
 import { ExchangeApi } from './exchange-service';
 import { calc, Database } from './business.logic.js';
 
+function outputText() {
+  $("#outputVal").html("The exchange rate between " + baseCur + " and " + newCur + " is " + Database.confactor + ". <br><br>" + inputVal + " " + baseCur + " = " + calc(inputVal, Database.confactor) + " " + newCur + ".");
+}
+
 function outputFun(response) {
   let baseCur = $("#baseCur").val();
   let newCur = $("#newCur").val();
   let inputVal = $("#inputVal").val();
-  dataBase(response, newCur);
-  if (response.conversion_rates) {
-    $("#outputVal").html("The exchange rate between " + baseCur + " and " + newCur + " is " + multFactor + ". <br><br>" + inputVal + " " + baseCur + " = " + calc(inputVal, Database.confactor) + " " + newCur + ".");
+  if (response === "useDatabaseOld") {
+    databaseOld(newCur);
+  } 
+  else if (response.conversion_rate) {
+    databaseNew(response, newCur);
   } else {
     if (response["error-type"] === "unsupported-code") {
       $("#outputVal").text("That input currency is not supported or does not exist");
@@ -20,6 +26,18 @@ function outputFun(response) {
     }
   }
 }
+
+//   databaseNew(response, newCur);
+//   if (response.conversion_rates) {
+//     $("#outputVal").html("The exchange rate between " + baseCur + " and " + newCur + " is " + Database.confactor + ". <br><br>" + inputVal + " " + baseCur + " = " + calc(inputVal, Database.confactor) + " " + newCur + ".");
+//   } else {
+//     if (response["error-type"] === "unsupported-code") {
+//       $("#outputVal").text("That input currency is not supported or does not exist");
+//     } else {
+//     $("#outputVal").text(`There was an error: ${response["error-type"]}`);
+//     }
+//   }
+// }
 
 // function outputDatabase() {
 //   let newCur = $("#newCur").val();
@@ -35,7 +53,7 @@ $(document).ready(function() {
     event.preventDefault();
     baseCurArray.push($("#baseCur").val());
     if (baseCurArray[1] === baseCurArray[0]) {
-      let response = "useDatabase"
+      let response = "useDatabaseOld"
       outputFun(response);
     } else {
       (async function() {

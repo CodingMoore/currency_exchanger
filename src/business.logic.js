@@ -8,12 +8,19 @@ export static class Database {
     this.conFactor = conFactor
   }
 
-  dataBase(response, newCur) {
+  databaseNew(response, newCur) {
     const curKey = Object.entries(response.conversion_rates);
     for (let i = 0; i < curKey.length; i++) {
       if (newCur === curKey[i][0]) {
-        let conFactor = curKey[i][1];
-        // return conFactor;
+        this.conFactor = curKey[i][1];
+      }
+    }
+  }
+
+  databaseOld(newCur) {
+    for (let i = 0; i < this.curKey.length; i++) {
+      if (newCur === this.curKey[i][0]) {
+        this.conFactor = this.curKey[i][1];
       }
     }
   }
