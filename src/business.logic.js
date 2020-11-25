@@ -1,5 +1,5 @@
-export function calc(inputNum, factor) {
-  return parseFloat(inputNum) * parseFloat(factor);
+export function calc(inputVal, factor) {
+  return parseFloat(inputVal) * parseFloat(factor);
 }
 
 export class Database {
@@ -9,15 +9,18 @@ export class Database {
   }
 
   static databaseNew(response, newCur) {
-    const curKey = Object.entries(response.conversion_rates);
+    console.log("DatabaseNew has run");
+    let curKey = Object.entries(response.conversion_rates);
     for (let i = 0; i < curKey.length; i++) {
       if (newCur === curKey[i][0]) {
         this.conFactor = curKey[i][1];
+        this.curKey = curKey;
       }
     }
   }
 
   static databaseOld(newCur) {
+    console.log("DatabaseOld has run");
     for (let i = 0; i < this.curKey.length; i++) {
       if (newCur === this.curKey[i][0]) {
         this.conFactor = this.curKey[i][1];

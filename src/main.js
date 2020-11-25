@@ -9,7 +9,8 @@ function outputText() {
   let baseCur = $("#baseCur").val();
   let newCur = $("#newCur").val();
   let inputVal = $("#inputVal").val();
-  $("#outputVal").html("The exchange rate between " + baseCur + " and " + newCur + " is " + Database.confactor + ". <br><br>" + inputVal + " " + baseCur + " = " + calc(inputVal, Database.confactor) + " " + newCur + ".");
+  let factor = Database.conFactor;
+  $("#outputVal").html("The exchange rate between " + baseCur + " and " + newCur + " is " + factor + ". <br><br>" + inputVal + " " + baseCur + " = " + calc(inputVal, factor) + " " + newCur + ".");
 }
 
 function outputFun(response) {
@@ -18,7 +19,7 @@ function outputFun(response) {
     Database.databaseOld(newCur);
     outputText();
   } 
-  else if (response.conversion_rate) {
+  else if (response.conversion_rates) {
     Database.databaseNew(response, newCur);
     outputText();
   } else {
@@ -36,10 +37,10 @@ $(document).ready(function() {
     event.preventDefault();
     baseCurArray.push($("#baseCur").val());
     baseCurArray.shift();
-    console.log(baseCurArray);
     console.log(typeof(Database.curKey));
     if (baseCurArray[1] === baseCurArray[0] && typeof(Database.curKey) !== "undefined") {
       let response = "useDatabaseOld";
+      console.log(response);
       outputFun(response);
     } else {
       (async function() {
