@@ -10,7 +10,11 @@ function outputText() {
   let newCur = $("#newCur").val();
   let inputVal = $("#inputVal").val();
   let factor = Database.conFactor;
-  $("#outputVal").html("The exchange rate between " + baseCur + " and " + newCur + " is " + factor + ". <br><br>" + inputVal + " " + baseCur + " = " + calc(inputVal, factor) + " " + newCur + ".");
+  if (factor === "invalidCur") {
+    $("#outputVal").text("That output currency is not supported or does not exist");
+  } else {
+    $("#outputVal").html("The exchange rate between " + baseCur + " and " + newCur + " is " + factor + ". <br><br>" + inputVal + " " + baseCur + " = " + calc(inputVal, factor) + " " + newCur + ".");
+  }
 }
 
 function outputFun(response) {

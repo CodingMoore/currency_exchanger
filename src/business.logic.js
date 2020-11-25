@@ -21,10 +21,38 @@ export class Database {
 
   static databaseOld(newCur) {
     console.log("DatabaseOld has run");
+    let keyArray = [];
     for (let i = 0; i < this.curKey.length; i++) {
-      if (newCur === this.curKey[i][0]) {
-        this.conFactor = this.curKey[i][1];
-      }
+      keyArray.push(this.curKey[i][0]);
+    }
+    console.log(keyArray);
+    for (let i = 0; i < this.curKey.length; i++) {
+      if (keyArray.includes(newCur)) {
+        if (newCur === this.curKey[i][0]) {
+          this.conFactor = this.curKey[i][1];
+          console.log(this.curKey[i][0]);
+        }
+      } else {
+        this.conFactor = "invalidCur";
+      } 
     }
   }
 }
+
+
+// static databaseOld(newCur) {
+//   console.log("DatabaseOld has run");
+//   for (let i = 0; i < this.curKey.length; i++) {
+//     let keyArray = [];
+//     keyArray.push(this.curKey[i][0]);
+//     console.log(keyArray);
+//     if (keyArray.includes(newCur)) {
+//       if (newCur === this.curKey[i][0]) {
+//         this.conFactor = this.curKey[i][1];
+//         console.log(this.curKey[i][0]);
+//       }
+//     } else {
+//       this.conFactor = "invalidCur";
+//     } 
+//   }
+// }
