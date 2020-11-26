@@ -6,18 +6,18 @@
 <body>
   <div class="container">
     <H1>Currency Exchange Rate Calculator</H1>
-    <form id="input form">
-      <div class="form-group">
+    <form id="inputForm">
+      <div id="dropDown">
         <label for="baseCur">Convert From: </label>
-        <input id="baseCur" class="form-control" type="text">
+        <select class="form-control" id="baseCur" required>
+        </select>
+        <label for="baseCur">Convert To: </label>
+        <select class="form-control" id="newCur" required>
+        </select>
       </div>
       <div class="form-group">
-        <label for="newCur">Convert To: </label>
-        <input id="newCur" class="form-control" type="text">
-      </div>
-      <div class="form-group">
-        <label for="inputVal">Convert To: </label>
-        <input id="inputVal" class="form-control" type="text">
+        <label for="inputVal">Ammount: </label>
+        <input id="inputVal" class="form-control" type="number" min="1" max="1000000000000000" value="1" required>
       </div>
       <button type="submit" id="submitButton">Submit</button>
     </form>
