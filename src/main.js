@@ -39,12 +39,11 @@ $(document).ready(function() {
   const baseCurArray = ["placeHolder1", "placeHolder2"];
   $("#submitButton").click(function(event) {
     event.preventDefault();
-    baseCurArray.push($("#baseCur").val());
+    let baseCur = $("#baseCur").val();
+    baseCurArray.push(baseCur);
     baseCurArray.shift();
-    console.log(typeof(Database.curKey));
-    if (baseCurArray[1] === baseCurArray[0] && typeof(Database.curKey) !== "undefined") {
+    if (baseCurArray[1] === baseCurArray[0] && Database.keyArray.includes(baseCur)) {
       let response = "useDatabaseOld";
-      console.log(response);
       outputFun(response);
     } else {
       (async function() {
