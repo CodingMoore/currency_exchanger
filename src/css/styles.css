@@ -1,0 +1,36 @@
+body {
+font-weight: bold;
+font-size: 18pt;
+}
+.container {
+  border-style: solid;
+  padding: 30pt;
+  border-radius: 20pt;
+}
+#headerText {
+  font-size: 50pt;
+  font-family: Helvetica;
+  font-weight: bold;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: rgb(50, 140, 230);
+  border-radius: 20pt;
+  margin-bottom: 40pt;
+}
+#submitButton {
+  background-color: rgb(236, 188, 116);
+  margin-bottom: 20pt;
+  border-radius: 3pt;
+}
+#outputBox {
+  display: none;
+  background-color: rgb(141, 160, 71);
+  padding: 20pt;
+  border-radius: 20pt;
+}
+#convertFrom {
+  margin-bottom: 30pt;
+}
+#convertTo {
+  margin-bottom: 30pt;
+}

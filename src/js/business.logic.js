@@ -10,7 +10,6 @@ export class Database {
   }
 
   static databaseNew(response, newCur) {
-    console.log("DatabaseNew has run");
     let curKey = Object.entries(response.conversion_rates);
     let keyArray = [];
     for (let i = 0; i < curKey.length; i++) {
@@ -31,7 +30,6 @@ export class Database {
   }
 
   static databaseOld(newCur) {
-    console.log("DatabaseOld has run");
     for (let i = 0; i < this.curKey.length; i++) {
       if (this.keyArray.includes(newCur)) {
         if (newCur === this.curKey[i][0]) {

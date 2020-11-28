@@ -5,15 +5,19 @@
 </head>
 <body>
   <div class="container">
-    <H1>Currency Exchange Rate Calculator</H1>
+    <H1 id="headerText">Currency Exchange Rate Calculator</H1>
     <form id="inputForm">
       <div id="dropDown">
-        <label for="baseCur">Convert From: </label>
-        <select class="form-control" id="baseCur" required>
-        </select>
-        <label for="baseCur">Convert To: </label>
-        <select class="form-control" id="newCur" required>
-        </select>
+        <div id="convertFrom">
+          <label for="baseCur">Convert From: </label>
+          <select class="form-control" id="baseCur" required>
+          </select>
+        </div>
+        <div id="convertTo">
+          <label for="newCur">Convert To: </label>
+          <select class="form-control" id="newCur" required>
+          </select>
+        </div>
       </div>
       <div class="form-group">
         <label for="inputVal">Amount: </label>

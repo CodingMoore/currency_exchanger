@@ -2,9 +2,9 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import { ExchangeApi } from './exchange-service';
-import { calc, Database } from './business.logic.js';
-import { moneyArray } from './money.array.js';
+import { ExchangeApi } from './js/exchange-service';
+import { calc, Database } from './js/business.logic.js';
+import { moneyArray } from './js/money.array.js';
 
 $(window).on("load", function(){
   for (let i = 0; i < moneyArray.length; i++) {
@@ -19,9 +19,11 @@ function outputText() {
   let inputVal = $("#inputVal").val();
   let factor = Database.conFactor;
   if (factor === "invalidCur") {
-    $("#outputVal").text("That output currency is not supported or does not exist");
+    $("#outputVal").text("That output currency is not supported or does not exist.");
+    $("#outputBox").show();
   } else {
-    $("#outputVal").html("The exchange rate between " + baseCur + " and " + newCur + " is " + factor + ". <br><br>" + inputVal + " " + baseCur + " = " + calc(inputVal, factor) + " " + newCur + ".");
+    $("#outputVal").html("The exchange rate between " + baseCur + " and " + newCur + " is " + factor + ". <br>" + inputVal + " " + baseCur + " = " + calc(inputVal, factor) + " " + newCur + ".");
+    $("#outputBox").show();
   }
 }
 
@@ -36,9 +38,11 @@ function outputFun(response) {
     outputText();
   } else {
     if (response["error-type"] === "unsupported-code") {
-      $("#outputVal").text("That input currency is not supported or does not exist");
+      $("#outputVal").text("That input currency is not supported or does not exist.");
+      $("#outputBox").show();
     } else {
       $("#outputVal").text(`There was an error: ${response["error-type"]}`);
+      $("#outputBox").show();
     }
   }
 }
