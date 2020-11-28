@@ -1,11 +1,15 @@
-# **PROJECT NAME HERE**
-Updated: 2020-11-01
+# **currency_exchanger**
+Project Initiated: 2020-11-20
+Updated: 2020-11-27
 ## **Project Description**
-This project allows the user to input a number into the input field.  Upon clicking the submit button, the program will read back every whole number from 0 to the input value specified by the user.
+This project allows the user to select an input currency with "dollar" amount, and an output currency.  The website will make an API call to https://www.exchangerate-api.com/ to retrieve the most up to date exchange rate information. It will provide the user with the current exchange rate between the selecte currencies as a number, as well as calculating the value of the inputed dollar amount in the new currency.
 
-The output will also convert every number that contains any of the digits "1","2","3" into a short word or phrase.
+To run this website program on a local computer, the user should use their own API key, which can be obtained at https://www.exchangerate-api.com/.  Insturctions for how to obtain and 'install' this key are provided in the Installation Instructions below.
+
+Please note that the online version of this project has a limited number or API calls per month.  If this maximum number of API calls is reached, the program will not run as expected.
 ## **Required for Use**
-A browser that can run HTML5 is required.
+* A browser that can run HTML5 is required.
+* An exchangerate-api.com API key (if you want to run the program on your own computer).
 ## **Installation Instructions**
 **Option 1** (live webpage)
 1) Follow the link below to access the live version of this webpage.
@@ -25,35 +29,13 @@ https://rmgit-it.github.io/mr_robogers_neighborhood/
 
 The project should automatically launch using your default application(s).
 ## **Usage / Examples**
-Input: 14
+Convert From: USD - United States Dollar - United States
+Convert To: JPY - Japanese Yen - Japan
+Amount: 150
 
-Output: "0, Beep!, Boop!, Won't you be my neighbor?, 4, 5, 6, 7, 8, 9, Beep!, Beep!, Boop!, Won't you be my neighbor?, Beep!"
+Output: The exchange rate between USD and JPY is 104.2543.  150 USD = 15638.15 JPY.
 ## **Planned Features**
 No new features are planned at this time.
-## **Specs**
-| Test | Input | Output |
-| :-- | :--| :-- |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-
-
-Description: mrRobo()
-
-Test: "It returns a list of numbers counting up to the number input by the user"
-Expect: mrRobo(5).toReturn "1, 2, 3, 4, 5"
-
-Test: "It returns "Won't you be my neighbor?" for any number containing "3".
-Expect: mrRobo(14).toReturn "0, 1, 2, "won't you be my neighbor", 4, 5, 6, 7, 8, 9, 10, 11, 12, "wont you be my neighbor", 14"
-
-Test: "It returns "Boop!" for any number containing "2".
-Expect: mrRobo(14).toReturn "0, 1, "Boop!", "won't you be my neighbor", 4, 5, 6, 7, 8, 9, 10, 11, "Boop!", "wont you be my neighbor", 14"
-
-Test: "it returns "Beep!" for any number containing "1".
-Expect: mrRobo(14).toReturn "0, "Beep!", "Boop!", "won't you be my neighbor", 4, 5, 6, 7, 8, 9, "Beep!", "Beep!", "Boop!", "wont you be my neighbor", 14"
 ## **Known Bugs**
 There are no known bugs
 ## **Technology Used**
@@ -64,7 +46,6 @@ There are no known bugs
 * CSS
 ## **Authors and Contributors**
 Authored by: Randel Moore
-Initial Start Date: 2020-10-30
 ## **Contact**
 RMGit.it@gmail.com
 ## **License**
@@ -72,5 +53,3 @@ RMGit.it@gmail.com
 GPLv3
 
 Copyright © 2020 Randel Moore
-
-## **Project Status**

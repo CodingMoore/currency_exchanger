@@ -32,12 +32,8 @@ export class Database {
 
   static databaseOld(newCur) {
     console.log("DatabaseOld has run");
-    let keyArray = [];
     for (let i = 0; i < this.curKey.length; i++) {
-      keyArray.push(this.curKey[i][0]);
-    }
-    for (let i = 0; i < this.curKey.length; i++) {
-      if (keyArray.includes(newCur)) {
+      if (this.keyArray.includes(newCur)) {
         if (newCur === this.curKey[i][0]) {
           this.conFactor = this.curKey[i][1];
         }
