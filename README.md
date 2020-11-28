@@ -14,7 +14,8 @@ Please note that the online version of this project has a limited number or API 
 API Key:  If you are not using the live webpage version of this project, you will need to obtain a personal API key from https://www.exchangerate-api.com/.  Follow the link, enter your email address, and click the large blue "Get Free Key" button.  You will then be provided your own personal API key for use with this project. Make sure to look for a verification email from exchangerate-api.com. If you do not verify your email address with them, your API key will become invalid after a few hours.
 
 **Option 1** (live webpage)
-1) Follow the link below to access the live version of this webpage.
+1) Follow the link below to access the live version of this webpage.<br>
+https://rmgit-it-currency-exchanger.herokuapp.com/
 
 **Option 2**
 1) Copy and paste the following GitHub project link into your web browser's url bar and hit enter/return. https://github.com/RMGit-it/currency_exchanger
