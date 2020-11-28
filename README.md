@@ -15,7 +15,7 @@ API Key:  If you are not using the live webpage version of this project, you wil
 
 **Option 1** (live webpage)
 1) Follow the link below to access the live version of this webpage.<br>
-https://rmgit-it-currency-exchanger.herokuapp.com/
+__There is no live webpage deployed at this time__
 
 **Option 2**
 1) Copy and paste the following GitHub project link into your web browser's url bar and hit enter/return. https://github.com/RMGit-it/currency_exchanger
